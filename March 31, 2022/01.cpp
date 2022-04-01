@@ -37,6 +37,32 @@ int isFull(struct Stack *ptr)
     }
 }
 
+void push(int value, struct Stack * s)
+{
+    if(isFull(s))
+    {
+        cout << "Stack Overflow" << endl;
+    }
+    else {
+        s->top++;
+        s->arr[s->top] = value;
+    }
+}
+
+void pop(struct Stack *s) {
+    //! error handling condition
+    if(isEmpty(s)) {
+        cout << "Underflow stack";
+    }
+    else {
+        //! if user want to see which element just popped out so show this by storing into another variable
+        int just_popped = s->arr[s->top];
+        s->arr[s->top] = 0;
+        s->top--;
+        cout << just_popped << " popped from the linked list" << endl;
+    }
+}
+
 int main()
 {
     // struct Stack s;
